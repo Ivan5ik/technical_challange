@@ -8,6 +8,7 @@ export const RootRightBlock = styled.div`
   background: ${PALETTE.lightPurple};
   display: flex;
   align-items: center;
+  justify-content: center;
 `;
 export const WrapperRightBlock = styled.div`
   display: flex;
@@ -17,7 +18,6 @@ export const WrapperRightBlock = styled.div`
 
 export const TextBlock = styled.div`
   width: 566px;
-  margin-left: 149px;
 
   & h1 {
     font-size: 42px;
@@ -43,6 +43,4 @@ export const TextBlock = styled.div`
     }
   }
 `;
-export const Img = styled(Image)`
-  margin-left: 76px;
-`;
+export const Img = styled(Image)``;

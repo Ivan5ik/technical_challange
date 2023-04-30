@@ -6,3 +6,9 @@ export const RootLeftBlock = styled.div`
   height: 100vh;
   background: ${PALETTE.white};
 `;
+export const WrapperForm = styled.div`
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
