@@ -1,7 +1,7 @@
-import { FC } from 'react';
-import { RootLeftBlock, WrapperForm } from './style';
-import { HeaderLeftBlock } from '../Header';
-import Form from '../Form';
+import { FC } from "react";
+import { RootLeftBlock, WrapperForm } from "./style";
+import { HeaderLeftBlock } from "../Header";
+import Form from "../Form";
 
 const LeftBlock = () => {
   return (
