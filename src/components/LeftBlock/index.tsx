@@ -1,6 +1,7 @@
 import { FC } from "react";
 import { RootLeftBlock, WrapperForm } from "./style";
 import { HeaderLeftBlock } from "../Header";
+import { FooterLeftBlock } from "../Footer";
 import Form from "../Form";
 
 const LeftBlock = () => {
@@ -10,6 +11,7 @@ const LeftBlock = () => {
       <WrapperForm>
         <Form />
       </WrapperForm>
+      <FooterLeftBlock />
     </RootLeftBlock>
   );
 };

@@ -1,7 +1,13 @@
 import { useForm } from "react-hook-form";
 
-import { FormDescription, FormTitle, RootForm, WrapperName } from "./style";
-import Input from "../Input";
+import {
+  BusinesDescription,
+  FormDescription,
+  FormTitle,
+  RootForm,
+  WrapperName,
+} from "./style";
+import { Input } from "../Input";
 
 const Form = () => {
   const {
@@ -65,7 +71,10 @@ const Form = () => {
         <Input
           rules={register("email", {
             required: true,
-            maxLength: 20,
+            pattern: {
+              value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
+              message: "The input is not valid E-mail!",
+            },
           })}
           title={"Email"}
           placeholder={"ryanfay@edgevana.com"}
@@ -98,6 +107,7 @@ const Form = () => {
           Sign Up
         </button>
       </form>
+      <BusinesDescription>Sign up for business account</BusinesDescription>
     </RootForm>
   );
 };

@@ -13,7 +13,7 @@ interface IInput {
   showPassword?: boolean;
 }
 
-const InputComponent: FC<IInput> = ({
+const Input: FC<IInput> = ({
   title,
   rules,
   children,
@@ -29,33 +29,31 @@ const InputComponent: FC<IInput> = ({
   };
 
   return (
-    <>
-      <LabelForm>
-        <label
-          className={classNames({ show: inputValue }, "label")}
-          htmlFor={"input"}
-        >
-          {title}
-        </label>
-        {showPassword && (
-          <Eye
-            className="svgEye"
-            onClick={() => setVisiblePassword(!visiblePassword)}
-          />
-        )}
-        <input
-          id={"input"}
-          value={inputValue}
-          className={classNames("input", { nameOfLastName: isNameField })}
-          {...rules}
-          onChange={handleChange}
-          placeholder={placeholder}
-          type={showPassword ? "text" : "password"}
+    <LabelForm>
+      <label
+        className={classNames({ show: inputValue }, "label")}
+        htmlFor={"input"}
+      >
+        {title}
+      </label>
+      {showPassword && (
+        <Eye
+          className="svgEye"
+          onClick={() => setVisiblePassword(!visiblePassword)}
         />
-        {children}
-      </LabelForm>
-    </>
+      )}
+      <input
+        id={"input"}
+        value={inputValue}
+        className={classNames("input", { nameOfLastName: isNameField })}
+        {...rules}
+        onChange={handleChange}
+        placeholder={placeholder}
+        type={showPassword ? "text" : "password"}
+      />
+      {children}
+    </LabelForm>
   );
 };
 
-export default InputComponent;
+export { Input };
