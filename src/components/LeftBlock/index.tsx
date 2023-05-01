@@ -1,8 +1,9 @@
 import { FC } from "react";
 import { RootLeftBlock, WrapperForm } from "./style";
+
+import Form from "../Form";
 import { HeaderLeftBlock } from "../Header";
 import { FooterLeftBlock } from "../Footer";
-import Form from "../Form";
 
 const LeftBlock = () => {
   return (
