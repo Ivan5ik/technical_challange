@@ -1,10 +1,15 @@
-import { FC } from 'react';
-import { Img, RootHeader } from './style';
+import { FC } from "react";
+import { Img, RootHeader } from "./style";
+import classNames from "classnames";
 
-const HeaderLeftBlock = () => {
+interface IHeaderLeftBlock {
+  isLeft?: boolean;
+}
+
+const HeaderLeftBlock: FC<IHeaderLeftBlock> = ({ isLeft }) => {
   return (
-    <RootHeader>
-      <Img src={'/assets/logo.png'} width={'171'} height={'38'} alt={'logo'} />
+    <RootHeader className={classNames({ isLeft: isLeft })}>
+      <Img src={"/assets/logo.png"} width={"171"} height={"38"} alt={"logo"} />
     </RootHeader>
   );
 };

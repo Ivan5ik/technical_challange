@@ -1,6 +1,6 @@
-import { PALETTE } from 'src/utils/palette';
-import styled from 'styled-components';
-import Image from 'next/image';
+import { PALETTE } from "src/utils/palette";
+import styled from "styled-components";
+import Image from "next/image";
 
 export const RootRightBlock = styled.div`
   width: 50%;
@@ -10,6 +10,7 @@ export const RootRightBlock = styled.div`
   align-items: center;
   justify-content: center;
 `;
+
 export const WrapperRightBlock = styled.div`
   display: flex;
   flex-direction: column;
@@ -43,4 +44,5 @@ export const TextBlock = styled.div`
     }
   }
 `;
+
 export const Img = styled(Image)``;

@@ -29,7 +29,7 @@ export const LabelForm = styled.label`
     }
   }
 
-  & .isNameField {
+  & .nameOfLastName {
     max-width: 192px;
   }
 

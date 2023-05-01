@@ -57,6 +57,8 @@ export const RootForm = styled.div`
 
 export const WrapperName = styled.div`
   display: flex;
+  flex-direction: row;
+  justify-content: space-between;
 `;
 
 export const FormTitle = styled.h1`
@@ -73,4 +75,14 @@ export const FormDescription = styled.p`
   line-height: 18px;
   color: ${PALETTE.secondary};
   padding-bottom: 32px;
+`;
+
+export const BusinesDescription = styled.p`
+  display: flex;
+  justify-content: center;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 17px;
+  color: ${PALETTE.primaryLight};
+  padding-top: 30px;
 `;
