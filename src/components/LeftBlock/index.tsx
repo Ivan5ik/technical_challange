@@ -1,4 +1,4 @@
-import { RootLeftBlock, WrapperForm } from "./style";
+import { RootLeftBlock, FormWrapper } from "./style";
 
 import Form from "../Form";
 import { HeaderLeftBlock } from "../Header";
@@ -8,9 +8,9 @@ const LeftBlock = () => {
   return (
     <RootLeftBlock>
       <HeaderLeftBlock />
-      <WrapperForm>
+      <FormWrapper>
         <Form />
-      </WrapperForm>
+      </FormWrapper>
       <FooterLeftBlock />
     </RootLeftBlock>
   );

@@ -3,7 +3,7 @@ import styled from "styled-components";
 
 export const RootLeftBlock = styled.div`
   width: 50%;
-  height: calc(100vh - 110px);
+  min-height: calc(100vh - 110px);
   background: ${PALETTE.white};
 
   @media (max-width: 1450px) {
@@ -12,12 +12,12 @@ export const RootLeftBlock = styled.div`
 
   @media (max-width: 1100px) {
     width: 100%;
-    height: calc(100vh - 47px);
+    min-height: calc(100vh - 47px);
   }
 `;
 
-export const WrapperForm = styled.div`
-  height: 100%;
+export const FormWrapper = styled.div`
+  min-height: calc(100vh - 110px);
   display: flex;
   justify-content: center;
   align-items: center;

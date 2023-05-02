@@ -8,13 +8,13 @@ import {
   FormTitle,
   RootForm,
   StyledLink,
-  WrapperName,
+  NameWrapper,
   TextPrivacy,
+  CheckboxContainer,
 } from "./style";
 
 import { useState } from "react";
-import { InputComponent } from "../Input";
-import { useRouter } from "next/router";
+import { CustomInput } from "../Input";
 
 const Form = () => {
   const {
@@ -54,8 +54,8 @@ const Form = () => {
       <FormTitle>Sign Up</FormTitle>
       <FormDescription>Create your account</FormDescription>
       <form className={"mainForm"} onSubmit={handleSubmit(onSubmit)}>
-        <WrapperName className={"formItem"}>
-          <InputComponent
+        <NameWrapper className={"formItem"}>
+          <CustomInput
             title={"First Name"}
             rules={register("firstName", {
               required: true,
@@ -68,8 +68,8 @@ const Form = () => {
               <p className={"errorText"}>First name is required!</p>
             )}
             {formErrors.firstName && <span>{formErrors.firstName}</span>}
-          </InputComponent>
-          <InputComponent
+          </CustomInput>
+          <CustomInput
             title={"Last Name"}
             rules={register("lastName", {
               required: true,
@@ -82,9 +82,9 @@ const Form = () => {
               <p className={"errorText"}>Last name is required!</p>
             )}
             {formErrors.lastName && <span>{formErrors.lastName}</span>}
-          </InputComponent>
-        </WrapperName>
-        <InputComponent
+          </CustomInput>
+        </NameWrapper>
+        <CustomInput
           title={"User Name"}
           rules={register("userName", {
             required: true,
@@ -97,8 +97,8 @@ const Form = () => {
             <p className={"errorText"}>Last name is required!</p>
           )}
           {formErrors.userName && <span>{formErrors.userName}</span>}
-        </InputComponent>
-        <InputComponent
+        </CustomInput>
+        <CustomInput
           rules={register("email", {
             required: true,
             pattern: {
@@ -111,13 +111,11 @@ const Form = () => {
           isNameField={false}
         >
           {errors.email && (
-            <p className={"errorText"}>
-              The InputComponent is not valid E-mail!
-            </p>
+            <p className={"errorText"}>The input is not valid E-mail!</p>
           )}
           {formErrors.email && <span>{formErrors.email}</span>}
-        </InputComponent>
-        <InputComponent
+        </CustomInput>
+        <CustomInput
           rules={register("password", {
             required: true,
             minLength: {
@@ -136,8 +134,8 @@ const Form = () => {
             </p>
           )}
           {formErrors.password && <span>{formErrors.password}</span>}
-        </InputComponent>
-        <div style={{ display: "flex" }}>
+        </CustomInput>
+        <CheckboxContainer>
           <input
             className="inputCheckBox"
             type="checkbox"
@@ -160,7 +158,7 @@ const Form = () => {
             </Link>
             .
           </TextPrivacy>
-        </div>
+        </CheckboxContainer>
         <button className="submit" type="submit">
           Sign Up
         </button>
