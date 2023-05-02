@@ -1,4 +1,3 @@
-import { FC } from "react";
 import { RootLeftBlock, WrapperForm } from "./style";
 
 import Form from "../Form";

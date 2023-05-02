@@ -1,7 +1,5 @@
 import { FC } from "react";
 
-import { ILayoutProps } from "src/interfaces";
-
 import { Root } from "./style";
 import { HeaderLeftBlock } from "../Header";
 import { FooterLeftBlock } from "../Footer";
