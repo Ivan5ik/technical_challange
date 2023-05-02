@@ -20,7 +20,7 @@ const InputComponent: FC<IInput> = ({
   children,
   placeholder,
   isNameField,
-  showPassword,
+  showPassword = false,
 }) => {
   const { watch } = useForm();
 
@@ -53,7 +53,7 @@ const InputComponent: FC<IInput> = ({
         {...rules}
         onChange={handleChange}
         placeholder={placeholder}
-        type={showPassword ? 'text' : 'password'}
+        type={showPassword ? 'password' : 'text'}
       />
       {children}
     </LabelForm>
