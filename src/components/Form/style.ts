@@ -102,12 +102,18 @@ export const FormDescription = styled.p`
   }
 `;
 
-export const BusinesDescription = styled.p`
+export const BusinesDescription = styled.div`
   display: flex;
   justify-content: center;
   font-weight: 400;
   font-size: 14px;
   line-height: 17px;
-  color: ${PALETTE.primaryLight};
+  color: ${PALETTE.primary};
   padding-top: 30px;
+`;
+
+export const StyledLink = styled.a`
+  font-weight: 600;
+  color: ${PALETTE.primaryLight};
+  cursor: pointer;
 `;

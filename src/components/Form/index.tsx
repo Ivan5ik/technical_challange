@@ -5,9 +5,11 @@ import {
   FormDescription,
   FormTitle,
   RootForm,
+  StyledLink,
   WrapperName,
 } from "./style";
 import { Input } from "../Input";
+import Link from "next/link";
 
 const Form = () => {
   const {
@@ -107,7 +109,12 @@ const Form = () => {
           Sign Up
         </button>
       </form>
-      <BusinesDescription>Sign up for business account</BusinesDescription>
+      <BusinesDescription>
+        <Link href={"/"} legacyBehavior>
+          <StyledLink>Sign up</StyledLink>
+        </Link>
+        &nbsp;for business account
+      </BusinesDescription>
     </RootForm>
   );
 };
