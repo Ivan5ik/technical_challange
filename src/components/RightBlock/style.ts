@@ -8,6 +8,7 @@ export const RootRightBlock = styled.div`
   height: 100%;
   background: ${PALETTE.lightPurple};
   display: flex;
+  justify-content: center;
 
   @media (max-width: 1450px) {
     width: 55%;
