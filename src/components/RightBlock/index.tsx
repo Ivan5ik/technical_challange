@@ -1,5 +1,4 @@
-import { FC } from 'react';
-import { Img, RootRightBlock, TextBlock, WrapperRightBlock } from './style';
+import { Img, RootRightBlock, TextBlock, WrapperRightBlock } from "./style";
 
 const RightBlock = () => {
   return (
@@ -13,10 +12,10 @@ const RightBlock = () => {
           </h3>
         </TextBlock>
         <Img
-          src={'/assets/metrics.png'}
-          width={'710'}
-          height={'437'}
-          alt={'metrics'}
+          src={"/assets/metrics.png"}
+          width={"710"}
+          height={"437"}
+          alt={"metrics"}
         />
       </WrapperRightBlock>
     </RootRightBlock>
