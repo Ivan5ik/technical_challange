@@ -1,10 +1,10 @@
-import { PALETTE } from 'src/utils/palette';
+import { PALETTE } from "src/utils/palette";
 
-import styled from 'styled-components';
+import styled from "styled-components";
 
 export const RootForm = styled.div`
   max-width: 400px;
-  font-family: 'Inter';
+  font-family: "Inter";
   font-style: normal;
 
   & .labelCheckBox {
@@ -126,10 +126,11 @@ export const TextPrivacy = styled.div`
   color: ${PALETTE.secondary};
 `;
 
-export const WrapperName = styled.div`
+export const NameWrapper = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  width: 100%;
 
   @media (max-width: 600px) {
     flex-direction: column;
@@ -137,7 +138,7 @@ export const WrapperName = styled.div`
   }
 `;
 
-export const FormTitle = styled.h1`
+export const FormTitle = styled.h2`
   font-weight: 700;
   font-size: 26px;
   line-height: 31px;
@@ -148,6 +149,10 @@ export const FormTitle = styled.h1`
     display: flex;
     justify-content: center;
   }
+`;
+
+export const CheckboxContainer = styled.div`
+  display: flex;
 `;
 
 export const FormDescription = styled.p`
@@ -170,7 +175,7 @@ export const BusinesDescription = styled.div`
   font-size: 14px;
   line-height: 17px;
   color: ${PALETTE.primary};
-  padding-top: 30px;
+  padding: 30px 0 30px 0;
 `;
 
 export const StyledLink = styled.a`

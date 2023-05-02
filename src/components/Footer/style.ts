@@ -5,6 +5,9 @@ export const RootFooter = styled.div`
   width: 100%;
   font-family: "Inter";
   font-style: normal;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
 
   @media (max-width: 1100px) {
     display: none;

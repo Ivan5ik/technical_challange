@@ -1,5 +1,5 @@
-import { PALETTE } from 'src/utils/palette';
-import styled from 'styled-components';
+import { PALETTE } from "src/utils/palette";
+import styled from "styled-components";
 
 export const LabelForm = styled.label`
   color: ${PALETTE.primary};
@@ -10,6 +10,12 @@ export const LabelForm = styled.label`
   position: relative;
   padding-bottom: 20px;
   height: 100px;
+
+  & .nameOfLastName {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+  }
 
   & .input {
     margin-top: 8px;
@@ -35,9 +41,10 @@ export const LabelForm = styled.label`
     color: ${PALETTE.red};
   }
 
-  @media (max-width: 470px) {
-    & .nameOfLastName {
-      max-width: 160px;
-    }
+  & .input::placeholder {
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 17px;
+    color: ${PALETTE.secondary};
   }
 `;

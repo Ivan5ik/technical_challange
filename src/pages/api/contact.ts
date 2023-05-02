@@ -11,20 +11,20 @@ export default async function handler(
 
     if (!data.firstName) {
       formErrors.firstName = "First Name is required";
-    } else if (data.firstName.length > 50) {
-      formErrors.firstName = "Name cannot exceed 50 characters";
+    } else if (data.firstName.length > 20) {
+      formErrors.firstName = "Name cannot exceed 20 characters";
     }
 
     if (!data.lastName) {
       formErrors.lastName = "Last Name is required";
-    } else if (data.lastName.length > 50) {
-      formErrors.lastName = "Name cannot exceed 50 characters";
+    } else if (data.lastName.length > 20) {
+      formErrors.lastName = "Name cannot exceed 20 characters";
     }
 
     if (!data.userName) {
       formErrors.userName = "User Name is required";
-    } else if (data.userName.length > 50) {
-      formErrors.userName = "Name cannot exceed 50 characters";
+    } else if (data.userName.length > 20) {
+      formErrors.userName = "Name cannot exceed 20 characters";
     }
 
     if (!data.email) {
@@ -35,8 +35,8 @@ export default async function handler(
 
     if (!data.password) {
       formErrors.password = "Password is required";
-    } else if (data.password.length > 50) {
-      formErrors.password = "Message cannot exceed 50 characters";
+    } else if (data.password.length > 100) {
+      formErrors.password = "Message cannot exceed 100 characters";
     }
 
     if (Object.keys(formErrors).length > 0) {

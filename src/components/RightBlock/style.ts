@@ -5,8 +5,10 @@ import Image from "next/image";
 export const RootRightBlock = styled.div`
   width: 50%;
   min-height: 100vh;
+  height: 100%;
   background: ${PALETTE.lightPurple};
   display: flex;
+  justify-content: center;
 
   @media (max-width: 1450px) {
     width: 55%;
