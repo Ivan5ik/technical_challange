@@ -3,39 +3,37 @@ import classNames from 'classnames';
 import Eye from '../../../public/assets/eye.svg';
 
 import { LabelForm } from './style';
-import { useForm } from 'react-hook-form';
+import { Control, useForm, useFormContext } from 'react-hook-form';
+import { FormInputs } from 'src/interfaces';
 
 interface IInput {
   title: string;
-  rules: any;
+  name: string;
   placeholder: string;
   children: any;
   isNameField: boolean;
   showPassword?: boolean;
+  control: Control<FormInputs>;
 }
 
 const InputComponent: FC<IInput> = ({
   title,
-  rules,
+  name,
   children,
   placeholder,
   isNameField,
   showPassword = false,
 }) => {
-  const { watch } = useForm();
+  console.log(useFormContext());
 
-  const [inputValue, setInputValue] = useState('');
+  // const { register } = useFormContext();
 
   const [visiblePassword, setVisiblePassword] = useState(false);
-
-  const handleChange = (e: FormEvent<HTMLInputElement>) => {
-    setInputValue(e.currentTarget.value);
-  };
 
   return (
     <LabelForm>
       <label
-        className={classNames({ show: inputValue }, 'label')}
+        // className={classNames({ show: inputValue }, 'label')}
         htmlFor={'input'}
       >
         {title}
@@ -48,12 +46,11 @@ const InputComponent: FC<IInput> = ({
       )}
       <input
         id={'input'}
-        value={inputValue}
+        // value={inputValue}
         className={classNames('input', { nameOfLastName: isNameField })}
-        {...rules}
-        onChange={handleChange}
         placeholder={placeholder}
         type={visiblePassword ? 'password' : 'text'}
+        // {...register(`${name}`)}
       />
       {children}
     </LabelForm>

@@ -116,6 +116,29 @@ export const RootForm = styled.div`
   }
 `;
 
+export const LavelComlicatedPassword = styled.div`
+  display: flex;
+  justify-content: space-between;
+`;
+export const Block1 = styled.div`
+  width: 123px;
+  height: 6px;
+  border-radius: 42px;
+  background: linear-gradient(90deg, #5268d3 0%, #435acb 100%);
+`;
+export const Block2 = styled.div`
+  width: 123px;
+  height: 6px;
+  border-radius: 42px;
+  background-color: green;
+`;
+export const Block3 = styled.div`
+  border-radius: 42px;
+  width: 123px;
+  height: 6px;
+  background-color: ${PALETTE.lightGrey};
+`;
+
 export const TextPrivacy = styled.div`
   font-weight: 300;
   font-size: 15px;
