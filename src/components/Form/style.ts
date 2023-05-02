@@ -80,6 +80,11 @@ export const RootForm = styled.div`
     position: relative;
   }
 
+  & .privacy {
+    line-height: 24px;
+    color: ${PALETTE.blue};
+  }
+
   & .svgEye {
     position: absolute;
     cursor: pointer;
@@ -108,14 +113,6 @@ export const RootForm = styled.div`
       margin: 0 18px 0 18px;
     }
   }
-`;
-
-export const StyledLink = styled.a`
-  font-weight: 600;
-  font-size: 14px;
-  line-height: 24px;
-  color: ${PALETTE.blue};
-  text-decoration: none;
 `;
 
 export const TextPrivacy = styled.div`

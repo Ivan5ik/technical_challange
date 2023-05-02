@@ -1,5 +1,5 @@
-import { PALETTE } from "src/utils/palette";
-import styled from "styled-components";
+import { PALETTE } from 'src/utils/palette';
+import styled from 'styled-components';
 
 export const LabelForm = styled.label`
   color: ${PALETTE.primary};
@@ -27,10 +27,6 @@ export const LabelForm = styled.label`
     &:focus-visible {
       outline: auto;
     }
-  }
-
-  & .nameOfLastName {
-    max-width: 192px;
   }
 
   & .errorText {
