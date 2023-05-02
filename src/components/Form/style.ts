@@ -11,6 +11,7 @@ export const RootForm = styled.div`
     display: flex;
     align-items: center;
     position: relative;
+    align-items: start;
   }
 
   & .labelCheckBox > span {
@@ -47,7 +48,7 @@ export const RootForm = styled.div`
 
   & .inputCheckBox:checked + label > .done {
     visibility: visible;
-    top: 29px;
+    top: 4px;
     left: 3px;
   }
 

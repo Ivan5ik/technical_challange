@@ -53,7 +53,7 @@ const InputComponent: FC<IInput> = ({
         {...rules}
         onChange={handleChange}
         placeholder={placeholder}
-        type={showPassword ? 'password' : 'text'}
+        type={visiblePassword ? 'password' : 'text'}
       />
       {children}
     </LabelForm>
