@@ -1,10 +1,10 @@
-import { PALETTE } from "src/utils/palette";
+import { PALETTE } from 'src/utils/palette';
 
-import styled from "styled-components";
+import styled from 'styled-components';
 
 export const RootForm = styled.div`
   max-width: 400px;
-  font-family: "Inter";
+  font-family: 'Inter';
   font-style: normal;
 
   & .labelCheckBox {
@@ -153,6 +153,7 @@ export const FormTitle = styled.h2`
 
 export const CheckboxContainer = styled.div`
   display: flex;
+  margin-top: 40px;
 `;
 
 export const FormDescription = styled.p`
