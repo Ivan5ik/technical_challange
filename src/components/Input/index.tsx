@@ -1,8 +1,9 @@
-import React, { FC, FormEvent, useState } from "react";
-import classNames from "classnames";
-import Eye from "../../../public/assets/eye.svg";
+import React, { FC, FormEvent, useState } from 'react';
+import classNames from 'classnames';
+import Eye from '../../../public/assets/eye.svg';
 
-import { LabelForm } from "./style";
+import { LabelForm } from './style';
+import { useForm } from 'react-hook-form';
 
 interface IInput {
   title: string;
@@ -21,19 +22,23 @@ const InputComponent: FC<IInput> = ({
   isNameField,
   showPassword,
 }) => {
-  const [inputValue, setInputValue] = useState("");
+  const { watch } = useForm();
+
+  const [inputValue, setInputValue] = useState('');
+
   const [visiblePassword, setVisiblePassword] = useState(false);
 
   const handleChange = (e: FormEvent<HTMLInputElement>) => {
     setInputValue(e.currentTarget.value);
   };
+  console.log();
 
   return (
     <>
       <LabelForm>
         <label
-          className={classNames({ show: inputValue }, "label")}
-          htmlFor={"input"}
+          className={classNames({ show: inputValue }, 'label')}
+          htmlFor={'input'}
         >
           {title}
         </label>
@@ -44,13 +49,13 @@ const InputComponent: FC<IInput> = ({
           />
         )}
         <input
-          id={"input"}
+          id={'input'}
           value={inputValue}
-          className={classNames("input", { nameOfLastName: isNameField })}
+          className={classNames('input', { nameOfLastName: isNameField })}
           {...rules}
           onChange={handleChange}
           placeholder={placeholder}
-          type={showPassword ? "text" : "password"}
+          type={visiblePassword ? 'text' : 'password'}
         />
         {children}
       </LabelForm>
