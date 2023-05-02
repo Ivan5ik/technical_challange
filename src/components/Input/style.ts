@@ -15,7 +15,7 @@ export const LabelForm = styled.label`
     margin-top: 8px;
     width: 100%;
     height: 52px;
-    padding-left: 18px;
+    padding: 0 18px 0 18px;
     background: ${PALETTE.grey};
     border-radius: 8px;
     border: none;
@@ -37,5 +37,11 @@ export const LabelForm = styled.label`
     font-size: 12px;
     line-height: 17px;
     color: ${PALETTE.red};
+  }
+
+  @media (max-width: 470px) {
+    & .nameOfLastName {
+      max-width: 160px;
+    }
   }
 `;

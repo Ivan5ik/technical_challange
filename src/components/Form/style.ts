@@ -25,6 +25,10 @@ export const RootForm = styled.div`
 
   & .nameOfLastName {
     max-width: 192px;
+
+    @media (max-width: 600px) {
+      max-width: 100%;
+    }
   }
 
   & .position {
@@ -53,12 +57,23 @@ export const RootForm = styled.div`
     cursor: pointer;
     margin-top: 40px;
   }
+
+  & .mainForm {
+    @media (max-width: 470px) {
+      margin: 0 18px 0 18px;
+    }
+  }
 `;
 
 export const WrapperName = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+
+  @media (max-width: 600px) {
+    flex-direction: column;
+    justify-content: center;
+  }
 `;
 
 export const FormTitle = styled.h1`
@@ -67,6 +82,11 @@ export const FormTitle = styled.h1`
   line-height: 31px;
   color: ${PALETTE.primary};
   padding-bottom: 11px;
+
+  @media (max-width: 600px) {
+    display: flex;
+    justify-content: center;
+  }
 `;
 
 export const FormDescription = styled.p`
@@ -75,6 +95,11 @@ export const FormDescription = styled.p`
   line-height: 18px;
   color: ${PALETTE.secondary};
   padding-bottom: 32px;
+
+  @media (max-width: 600px) {
+    display: flex;
+    justify-content: center;
+  }
 `;
 
 export const BusinesDescription = styled.p`

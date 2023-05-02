@@ -13,7 +13,7 @@ const FooterLeftBlock: FC<FooterLeftBlock> = ({ isLeft }) => {
     <RootFooter className={classNames({ isLeft: isLeft })}>
       <FooterText>
         © Edegvana
-        <span> {currentYear}</span>
+        <span>&nbsp;{currentYear}</span>
       </FooterText>
     </RootFooter>
   );
