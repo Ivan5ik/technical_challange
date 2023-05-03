@@ -1,6 +1,6 @@
-import React, { FC, FormEvent, ReactNode, useState } from 'react';
-import classNames from 'classnames';
-import Eye from '../../../public/assets/eye.svg';
+import React, { FC, FormEvent, ReactNode, useState } from "react";
+import classNames from "classnames";
+import Eye from "../../../public/assets/eye.svg";
 
 import {
   Block1,
@@ -8,14 +8,15 @@ import {
   Block3,
   LabelForm,
   LavelComlicatedPassword,
-} from './style';
+} from "./style";
 import {
   hasLetter,
   hasLettersNumbersSymbols,
   hasNumber,
   hasSpecialSymbol,
   onlyLetter,
-} from 'src/utils/common';
+} from "src/utils/common";
+import { useForm } from "react-hook-form";
 
 interface IInput {
   title: string;
@@ -34,7 +35,7 @@ const CustomInput: FC<IInput> = ({
   isNameField,
   showPassword = false,
 }) => {
-  const [inputValue, setInputValue] = useState('');
+  const [inputValue, setInputValue] = useState("");
 
   const [visiblePassword, setVisiblePassword] = useState(false);
 
@@ -45,8 +46,8 @@ const CustomInput: FC<IInput> = ({
   return (
     <LabelForm>
       <label
-        className={classNames({ show: inputValue }, 'label')}
-        htmlFor={'input'}
+        className={classNames({ show: inputValue }, "label")}
+        htmlFor={"input"}
       >
         {title}
       </label>
@@ -58,13 +59,13 @@ const CustomInput: FC<IInput> = ({
       )}
       <input
         autoComplete="new-password"
-        id={'input'}
+        id={"input"}
         value={inputValue}
-        className={classNames('input', { nameOfLastName: isNameField })}
+        className={classNames("input", { nameOfLastName: isNameField })}
         {...rules}
         onChange={handleChange}
         placeholder={placeholder}
-        type={showPassword && !visiblePassword ? 'password' : 'text'}
+        type={showPassword && !visiblePassword ? "password" : "text"}
       />
       {showPassword && (
         <LavelComlicatedPassword>

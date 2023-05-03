@@ -1,11 +1,10 @@
-import styled from 'styled-components';
-import Image from 'next/image';
-import { PALETTE } from 'src/utils/palette';
+import styled from "styled-components";
+import Image from "next/image";
+import { PALETTE } from "src/utils/palette";
 
 export const RootRightBlock = styled.div`
   width: 50%;
   min-height: 100vh;
-  height: 100%;
   background: ${PALETTE.lightPurple};
   display: flex;
   justify-content: center;
