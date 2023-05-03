@@ -12,7 +12,7 @@ const RightBlock = () => {
           </h3>
         </TextBlock>
         <Img
-          src={"/assets/metrics.png"}
+          src={"/assets/metrics.svg"}
           width={"710"}
           height={"437"}
           alt={"metrics"}
