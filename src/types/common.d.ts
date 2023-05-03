@@ -1,7 +1,3 @@
-declare interface ILayoutProps {
-  children: React.ReactNode;
-}
-
 declare interface FormInputs {
   firstName: string;
   lastName: string;

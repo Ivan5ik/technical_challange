@@ -1,16 +1,14 @@
-import { FC } from "react";
+import { FC, PropsWithChildren } from 'react';
+import { Header } from '../Header';
+import { Footer } from '../Footer';
 
-import { Root } from "./style";
-import { HeaderLeftBlock } from "../Header";
-import { FooterLeftBlock } from "../Footer";
-
-const Layout: FC<ILayoutProps> = ({ children }) => {
+const Layout: FC<PropsWithChildren> = ({ children }) => {
   return (
-    <Root>
-      <HeaderLeftBlock isLeft={true} />
+    <>
+      <Header isLeft />
       {children}
-      <FooterLeftBlock isLeft={true} />
-    </Root>
+      <Footer isLeft />
+    </>
   );
 };
 

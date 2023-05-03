@@ -1,6 +1,9 @@
+import { useRef, useState } from 'react';
 import { FormProvider, useForm } from 'react-hook-form';
-import Done from '../../../public/assets/done.svg';
 import Link from 'next/link';
+
+import Done from '../../../public/assets/done.svg';
+import { CustomInput } from '../Input';
 
 import {
   BusinesDescription,
@@ -13,24 +16,13 @@ import {
   CheckboxContainer,
 } from './style';
 
-import { useRef, useState } from 'react';
-import { CustomInput } from '../Input';
-
 const Form = () => {
   const trigeredBlock = useRef<HTMLDivElement>(null);
   const methods = useForm<FormInputs>();
 
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-    reset,
-    trigger,
-  } = methods;
+  const { register, handleSubmit, reset } = methods;
 
   const [check, setCheck] = useState(false);
-
-  const [formErrors, setFormErrors] = useState<FormErrors>({});
 
   const onSubmit = async (data: FormInputs) => {
     if (!check && trigeredBlock.current) {
@@ -50,14 +42,10 @@ const Form = () => {
       body: JSON.stringify(data),
     });
 
-    const responseData = await response.json();
-
     if (response.ok) {
       alert(
         `Your data (${data.firstName}, ${data.lastName}, ${data.userName}, ${data.email} and password) has been successfully sent!`
       );
-    } else {
-      setFormErrors(responseData.errors);
     }
 
     reset(() => ({
@@ -69,6 +57,8 @@ const Form = () => {
     }));
   };
 
+  const handleCheck = () => setCheck((item) => !item);
+
   return (
     <RootForm>
       <FormTitle>Sign Up</FormTitle>
@@ -77,10 +67,10 @@ const Form = () => {
         <form className={'mainForm'} onSubmit={handleSubmit(onSubmit)}>
           <NameWrapper className={'formItem'}>
             <CustomInput
+              name={'firstName'}
               title={'First Name'}
               rules={register('firstName', {
                 required: 'First name is required!',
-
                 maxLength: {
                   value: 20,
                   message: 'Max 20 symbols',
@@ -88,12 +78,10 @@ const Form = () => {
               })}
               placeholder={'Ryan'}
               isNameField={true}
-            >
-              {errors.firstName && (
-                <p className={'errorText'}>{errors.firstName?.message}</p>
-              )}
-            </CustomInput>
+            />
+
             <CustomInput
+              name={'lastName'}
               title={'Last Name'}
               rules={register('lastName', {
                 required: 'Last name is required!',
@@ -104,13 +92,10 @@ const Form = () => {
               })}
               placeholder={'Fay'}
               isNameField={true}
-            >
-              {errors.lastName && (
-                <p className={'errorText'}>{errors.lastName?.message}</p>
-              )}
-            </CustomInput>
+            />
           </NameWrapper>
           <CustomInput
+            name={'userName'}
             title={'User Name'}
             rules={register('userName', {
               required: 'User Name is required!',
@@ -121,12 +106,10 @@ const Form = () => {
             })}
             placeholder={'ryanfay'}
             isNameField={false}
-          >
-            {errors.userName && (
-              <p className={'errorText'}>{errors.userName?.message}</p>
-            )}
-          </CustomInput>
+          />
+
           <CustomInput
+            name={'email'}
             rules={register('email', {
               required: 'Email field is required!',
               pattern: {
@@ -137,12 +120,10 @@ const Form = () => {
             title={'Email'}
             placeholder={'ryanfay@edgevana.com'}
             isNameField={false}
-          >
-            {errors.email && (
-              <p className={'errorText'}>{errors.email?.message}</p>
-            )}
-          </CustomInput>
+          />
+
           <CustomInput
+            name={'password'}
             rules={register('password', {
               required: 'Password is required!',
               minLength: {
@@ -154,11 +135,8 @@ const Form = () => {
             placeholder={'Password'}
             isNameField={false}
             showPassword={true}
-          >
-            {errors.password && (
-              <p className={'errorText'}>{errors.password?.message}</p>
-            )}
-          </CustomInput>
+          />
+
           <CheckboxContainer ref={trigeredBlock}>
             <input
               className="inputCheckBox"
@@ -167,13 +145,10 @@ const Form = () => {
               id="one"
             />
             <label className="labelCheckBox" htmlFor="one">
-              <span onClick={() => setCheck((item) => !item)}></span>
-              <Done
-                className="done"
-                onClick={() => setCheck((item) => !item)}
-              />
+              <span onClick={handleCheck} />
+              <Done className="done" onClick={handleCheck} />
             </label>
-            <TextPrivacy onClick={() => setCheck((item) => !item)}>
+            <TextPrivacy onClick={handleCheck}>
               I certify that i am 18 years of age or older, i agree to the to
               Edgevana`s{' '}
               <Link href={'/'} legacyBehavior target="_blank">

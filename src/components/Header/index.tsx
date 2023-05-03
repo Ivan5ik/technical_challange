@@ -1,26 +1,27 @@
-import { FC } from "react";
-import { Img, RootHeader } from "./style";
-import classNames from "classnames";
-import Link from "next/link";
+import { FC } from 'react';
+import classNames from 'classnames';
+import Link from 'next/link';
 
-interface IHeaderLeftBlock {
+import { Img, RootHeader } from './style';
+
+interface IHeader {
   isLeft?: boolean;
 }
 
-const HeaderLeftBlock: FC<IHeaderLeftBlock> = ({ isLeft }) => {
+const Header: FC<IHeader> = ({ isLeft }) => {
   return (
     <RootHeader className={classNames({ isLeft: isLeft })}>
-      <Link href={"/"} legacyBehavior>
+      <Link href={'/'} legacyBehavior>
         <Img
-          src={"/assets/logo.png"}
-          width={"171"}
-          height={"38"}
-          alt={"logo"}
-          style={{ cursor: "pointer" }}
+          src={'/assets/logo.png'}
+          width={'171'}
+          height={'38'}
+          alt={'logo'}
+          style={{ cursor: 'pointer' }}
         />
       </Link>
     </RootHeader>
   );
 };
 
-export { HeaderLeftBlock };
+export { Header };

@@ -1,6 +1,15 @@
-import React, { FC, FormEvent, ReactNode, useState } from "react";
-import classNames from "classnames";
-import Eye from "../../../public/assets/eye.svg";
+import React, { FC, FormEvent, useState } from 'react';
+import { useFormContext } from 'react-hook-form';
+import classNames from 'classnames';
+
+import Eye from '../../../public/assets/eye.svg';
+import {
+  hasLetter,
+  hasLettersNumbersSymbols,
+  hasNumber,
+  hasSpecialSymbol,
+  onlyLetter,
+} from 'src/utils/common';
 
 import {
   Block1,
@@ -8,36 +17,30 @@ import {
   Block3,
   LabelForm,
   LavelComlicatedPassword,
-} from "./style";
-import {
-  hasLetter,
-  hasLettersNumbersSymbols,
-  hasNumber,
-  hasSpecialSymbol,
-  onlyLetter,
-} from "src/utils/common";
-import { useForm } from "react-hook-form";
+} from './style';
 
 interface IInput {
   title: string;
   rules: any;
-
   placeholder: string;
-  children: ReactNode;
   isNameField: boolean;
   showPassword?: boolean;
+  name: string;
 }
 
 const CustomInput: FC<IInput> = ({
   title,
   rules,
-
-  children,
   placeholder,
+  name,
   isNameField,
   showPassword = false,
 }) => {
-  const [inputValue, setInputValue] = useState("");
+  const { formState } = useFormContext();
+
+  const { errors: errorsInput } = formState;
+
+  const [inputValue, setInputValue] = useState('');
 
   const [visiblePassword, setVisiblePassword] = useState(false);
 
@@ -47,12 +50,7 @@ const CustomInput: FC<IInput> = ({
 
   return (
     <LabelForm>
-      <label
-        className={classNames({ show: inputValue }, "label")}
-        htmlFor={"input"}
-      >
-        {title}
-      </label>
+      <label htmlFor={'input'}>{title}</label>
       {showPassword && (
         <Eye
           className="svgEye"
@@ -61,13 +59,13 @@ const CustomInput: FC<IInput> = ({
       )}
       <input
         autoComplete="new-password"
-        id={"input"}
+        id={'input'}
         value={inputValue}
-        className={classNames("input", { nameOfLastName: isNameField })}
+        className={classNames('input', { nameOfLastName: isNameField })}
         {...rules}
         onChange={handleChange}
         placeholder={placeholder}
-        type={showPassword && !visiblePassword ? "password" : "text"}
+        type={showPassword && !visiblePassword ? 'password' : 'text'}
       />
       {showPassword && (
         <LavelComlicatedPassword>
@@ -79,7 +77,7 @@ const CustomInput: FC<IInput> = ({
                 (hasNumber.test(inputValue) && inputValue.length >= 8) ||
                 inputValue.length >= 8,
             })}
-          ></Block1>
+          />
           <Block2
             className={classNames({
               block2:
@@ -90,15 +88,17 @@ const CustomInput: FC<IInput> = ({
                   hasLetter.test(inputValue) &&
                   hasSpecialSymbol.test(inputValue)),
             })}
-          ></Block2>
+          />
           <Block3
             className={classNames({
               block3: hasLettersNumbersSymbols.test(inputValue),
             })}
-          ></Block3>
+          />
         </LavelComlicatedPassword>
       )}
-      {children}
+      {errorsInput[name] && (
+        <p className={'errorText'}>{String(errorsInput[name]?.message)}</p>
+      )}
     </LabelForm>
   );
 };

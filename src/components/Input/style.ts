@@ -1,5 +1,6 @@
-import { PALETTE } from 'src/utils/palette';
 import styled from 'styled-components';
+
+import { PALETTE } from 'src/utils/palette';
 
 export const LabelForm = styled.label`
   color: ${PALETTE.primary};

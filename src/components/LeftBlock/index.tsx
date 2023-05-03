@@ -1,17 +1,16 @@
-import { RootLeftBlock, FormWrapper } from "./style";
+import Form from '../Form';
+import { Header } from '../Header';
 
-import Form from "../Form";
-import { HeaderLeftBlock } from "../Header";
-import { FooterLeftBlock } from "../Footer";
+import { RootLeftBlock, FormWrapper } from './style';
 
 const LeftBlock = () => {
   return (
     <RootLeftBlock>
-      <HeaderLeftBlock />
+      <Header />
       <FormWrapper>
         <Form />
       </FormWrapper>
-      <FooterLeftBlock />
+      <Header />
     </RootLeftBlock>
   );
 };
