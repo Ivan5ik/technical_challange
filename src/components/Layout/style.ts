@@ -1,5 +1,4 @@
-import { PALETTE } from "src/utils/palette";
-import styled from "styled-components";
+import styled from 'styled-components';
 
 export const Root = styled.div`
   /* width: 100%;

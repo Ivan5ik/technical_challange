@@ -1,9 +1,9 @@
-import { PALETTE } from "src/utils/palette";
-import styled from "styled-components";
+import { PALETTE } from 'src/utils/palette';
+import styled from 'styled-components';
 
 export const RootFooter = styled.div`
   width: 100%;
-  font-family: "Inter";
+  font-family: 'Inter';
   font-style: normal;
   display: flex;
   align-items: flex-end;

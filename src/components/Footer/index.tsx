@@ -1,6 +1,6 @@
-import { FC } from "react";
-import { FooterText, RootFooter } from "./style";
-import classNames from "classnames";
+import { FC } from 'react';
+import { FooterText, RootFooter } from './style';
+import classNames from 'classnames';
 
 interface FooterLeftBlock {
   isLeft?: boolean;
@@ -11,10 +11,7 @@ const FooterLeftBlock: FC<FooterLeftBlock> = ({ isLeft }) => {
 
   return (
     <RootFooter className={classNames({ isLeft: isLeft })}>
-      <FooterText>
-        © Edegvana
-        <span>&nbsp;{currentYear}</span>
-      </FooterText>
+      <FooterText>© Edegvana {currentYear}</FooterText>
     </RootFooter>
   );
 };

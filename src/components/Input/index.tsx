@@ -9,6 +9,13 @@ import {
   LabelForm,
   LavelComlicatedPassword,
 } from './style';
+import {
+  hasLetter,
+  hasLettersNumbersSymbols,
+  hasNumber,
+  hasSpecialSymbol,
+  onlyLetter,
+} from 'src/utils/common';
 
 interface IInput {
   title: string;
@@ -34,12 +41,6 @@ const CustomInput: FC<IInput> = ({
   const handleChange = (e: FormEvent<HTMLInputElement>) => {
     setInputValue(e.currentTarget.value);
   };
-
-  const onlyLetter = new RegExp(/^[a-zA-Z]{8,}$/);
-  const hasLetter = /[a-zA-Z]/;
-  const hasNumber = /\d/;
-  const hardLevel =
-    /^(?=.*[a-zA-Z])(?=.*\d)(?=.*[@$!%*?&/.,_-])[A-Za-z\d@$!%*?&/.,_-]{8,}$/;
 
   return (
     <LabelForm>
@@ -72,20 +73,24 @@ const CustomInput: FC<IInput> = ({
               block1:
                 (onlyLetter.test(inputValue) && inputValue.length >= 8) ||
                 (hasLetter.test(inputValue) && inputValue.length >= 8) ||
-                (hasNumber.test(inputValue) && inputValue.length >= 8),
+                (hasNumber.test(inputValue) && inputValue.length >= 8) ||
+                inputValue.length >= 8,
             })}
           ></Block1>
           <Block2
             className={classNames({
               block2:
-                inputValue.length >= 8 &&
-                hasLetter.test(inputValue) &&
-                hasNumber.test(inputValue),
+                (inputValue.length >= 8 &&
+                  hasLetter.test(inputValue) &&
+                  hasNumber.test(inputValue)) ||
+                (inputValue.length >= 8 &&
+                  hasLetter.test(inputValue) &&
+                  hasSpecialSymbol.test(inputValue)),
             })}
           ></Block2>
           <Block3
             className={classNames({
-              block3: hardLevel.test(inputValue),
+              block3: hasLettersNumbersSymbols.test(inputValue),
             })}
           ></Block3>
         </LavelComlicatedPassword>

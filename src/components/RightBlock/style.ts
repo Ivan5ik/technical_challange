@@ -1,6 +1,6 @@
-import { PALETTE } from "src/utils/palette";
-import styled from "styled-components";
-import Image from "next/image";
+import styled from 'styled-components';
+import Image from 'next/image';
+import { PALETTE } from 'src/utils/palette';
 
 export const RootRightBlock = styled.div`
   width: 50%;

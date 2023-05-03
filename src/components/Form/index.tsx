@@ -23,7 +23,10 @@ const Form = () => {
     register,
     handleSubmit,
     formState: { errors },
+    reset,
+    trigger,
   } = methods;
+  console.log(methods);
 
   const [check, setCheck] = useState(false);
 
@@ -49,7 +52,9 @@ const Form = () => {
     } else {
       setFormErrors(responseData.errors);
     }
+    reset();
   };
+  console.log(errors.email);
 
   return (
     <RootForm>
@@ -61,49 +66,68 @@ const Form = () => {
             <CustomInput
               title={'First Name'}
               rules={register('firstName', {
-                required: true,
-                maxLength: 20,
+                required: 'First name is required!',
+
+                maxLength: {
+                  value: 20,
+                  message: 'Max 20 symbols',
+                },
               })}
               placeholder={'Ryan'}
               isNameField={true}
             >
               {errors.firstName && (
-                <p className={'errorText'}>First name is required!</p>
+                <p className={'errorText'}>{errors.firstName?.message}</p>
               )}
-              {formErrors.firstName && <span>{formErrors.firstName}</span>}
+              {/* {errors.firstName && (
+                <p className={'errorText'}>First name is required!</p>
+              )} */}
+              {/* {formErrors.firstName && <span>{formErrors.firstName}</span>} */}
             </CustomInput>
             <CustomInput
               title={'Last Name'}
               rules={register('lastName', {
-                required: true,
-                maxLength: 20,
+                required: 'Last name is required!',
+                maxLength: {
+                  value: 20,
+                  message: 'Max 20 symbols',
+                },
               })}
               placeholder={'Fay'}
               isNameField={true}
             >
               {errors.lastName && (
-                <p className={'errorText'}>Last name is required!</p>
+                <p className={'errorText'}>{errors.lastName?.message}</p>
               )}
-              {formErrors.lastName && <span>{formErrors.lastName}</span>}
+              {/* {errors.lastName && (
+                <p className={'errorText'}>Last name is required!</p>
+              )} */}
+              {/* {formErrors.lastName && <span>{formErrors.lastName}</span>} */}
             </CustomInput>
           </NameWrapper>
           <CustomInput
             title={'User Name'}
             rules={register('userName', {
-              required: true,
-              maxLength: 20,
+              required: 'User Name is required!',
+              maxLength: {
+                value: 20,
+                message: 'Max 20 symbols',
+              },
             })}
             placeholder={'ryanfay'}
             isNameField={false}
           >
             {errors.userName && (
+              <p className={'errorText'}>{errors.userName?.message}</p>
+            )}
+            {/* {errors.userName && (
               <p className={'errorText'}>Last name is required!</p>
             )}
-            {formErrors.userName && <span>{formErrors.userName}</span>}
+            {formErrors.userName && <span>{formErrors.userName}</span>} */}
           </CustomInput>
           <CustomInput
             rules={register('email', {
-              required: true,
+              required: 'Email field is required!',
               pattern: {
                 value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
                 message: 'The input is not valid E-mail!',
@@ -114,13 +138,16 @@ const Form = () => {
             isNameField={false}
           >
             {errors.email && (
+              <p className={'errorText'}>{errors.email?.message}</p>
+            )}
+            {/* {errors.email && (
               <p className={'errorText'}>The input is not valid E-mail!</p>
             )}
-            {formErrors.email && <span>{formErrors.email}</span>}
+            {formErrors.email && <span>{formErrors.email}</span>} */}
           </CustomInput>
           <CustomInput
             rules={register('password', {
-              required: true,
+              required: 'Password is required!',
               minLength: {
                 value: 8,
                 message: 'Password must have at least 8 characters',
@@ -132,11 +159,14 @@ const Form = () => {
             showPassword={true}
           >
             {errors.password && (
+              <p className={'errorText'}>{errors.password?.message}</p>
+            )}
+            {/* {errors.password && (
               <p className={'errorText'}>
                 Password must have at least 8 characters
               </p>
             )}
-            {formErrors.password && <span>{formErrors.password}</span>}
+            {formErrors.password && <span>{formErrors.password}</span>} */}
           </CustomInput>
           <CheckboxContainer>
             <input

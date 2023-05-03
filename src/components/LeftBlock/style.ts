@@ -1,5 +1,5 @@
-import { PALETTE } from "src/utils/palette";
-import styled from "styled-components";
+import { PALETTE } from 'src/utils/palette';
+import styled from 'styled-components';
 
 export const RootLeftBlock = styled.div`
   width: 50%;
