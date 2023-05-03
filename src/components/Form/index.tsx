@@ -1,6 +1,6 @@
-import { FormProvider, useForm } from "react-hook-form";
-import Done from "../../../public/assets/done.svg";
-import Link from "next/link";
+import { FormProvider, useForm } from 'react-hook-form';
+import Done from '../../../public/assets/done.svg';
+import Link from 'next/link';
 
 import {
   BusinesDescription,
@@ -11,10 +11,10 @@ import {
   NameWrapper,
   TextPrivacy,
   CheckboxContainer,
-} from "./style";
+} from './style';
 
-import { useRef, useState } from "react";
-import { CustomInput } from "../Input";
+import { useRef, useState } from 'react';
+import { CustomInput } from '../Input';
 
 const Form = () => {
   const trigeredBlock = useRef<HTMLDivElement>(null);
@@ -34,18 +34,18 @@ const Form = () => {
 
   const onSubmit = async (data: FormInputs) => {
     if (!check && trigeredBlock.current) {
-      trigeredBlock.current.style.border = "1px dashed red";
-      trigeredBlock.current.style.borderRadius = "3px";
+      trigeredBlock.current.style.border = '1px dashed red';
+      trigeredBlock.current.style.borderRadius = '3px';
       setTimeout(() => {
-        trigeredBlock.current!.style.border = "1px dashed white";
+        trigeredBlock.current!.style.border = '1px dashed white';
       }, 2000);
       return;
     }
 
-    const response = await fetch("/api/contact", {
-      method: "POST",
+    const response = await fetch('/api/contact', {
+      method: 'POST',
       headers: {
-        "Content-Type": "application/json",
+        'Content-Type': 'application/json',
       },
       body: JSON.stringify(data),
     });
@@ -61,11 +61,11 @@ const Form = () => {
     }
 
     reset(() => ({
-      firstName: "",
-      lastName: "",
-      userName: "",
-      email: "",
-      password: "",
+      firstName: '',
+      lastName: '',
+      userName: '',
+      email: '',
+      password: '',
     }));
   };
 
@@ -74,100 +74,90 @@ const Form = () => {
       <FormTitle>Sign Up</FormTitle>
       <FormDescription>Create your account</FormDescription>
       <FormProvider {...methods}>
-        <form className={"mainForm"} onSubmit={handleSubmit(onSubmit)}>
-          <NameWrapper className={"formItem"}>
+        <form className={'mainForm'} onSubmit={handleSubmit(onSubmit)}>
+          <NameWrapper className={'formItem'}>
             <CustomInput
-              title={"First Name"}
-              rules={register("firstName", {
-                required: "First name is required!",
+              title={'First Name'}
+              rules={register('firstName', {
+                required: 'First name is required!',
 
                 maxLength: {
                   value: 20,
-                  message: "Max 20 symbols",
+                  message: 'Max 20 symbols',
                 },
               })}
-              placeholder={"Ryan"}
+              placeholder={'Ryan'}
               isNameField={true}
             >
               {errors.firstName && (
-                <p className={"errorText"}>{errors.firstName?.message}</p>
+                <p className={'errorText'}>{errors.firstName?.message}</p>
               )}
-
-              {/* {formErrors.firstName && <span>{formErrors.firstName}</span>} */}
             </CustomInput>
             <CustomInput
-              title={"Last Name"}
-              rules={register("lastName", {
-                required: "Last name is required!",
+              title={'Last Name'}
+              rules={register('lastName', {
+                required: 'Last name is required!',
                 maxLength: {
                   value: 20,
-                  message: "Max 20 symbols",
+                  message: 'Max 20 symbols',
                 },
               })}
-              placeholder={"Fay"}
+              placeholder={'Fay'}
               isNameField={true}
             >
               {errors.lastName && (
-                <p className={"errorText"}>{errors.lastName?.message}</p>
+                <p className={'errorText'}>{errors.lastName?.message}</p>
               )}
-
-              {/* {formErrors.lastName && <span>{formErrors.lastName}</span>} */}
             </CustomInput>
           </NameWrapper>
           <CustomInput
-            title={"User Name"}
-            rules={register("userName", {
-              required: "User Name is required!",
+            title={'User Name'}
+            rules={register('userName', {
+              required: 'User Name is required!',
               maxLength: {
                 value: 20,
-                message: "Max 20 symbols",
+                message: 'Max 20 symbols',
               },
             })}
-            placeholder={"ryanfay"}
+            placeholder={'ryanfay'}
             isNameField={false}
           >
             {errors.userName && (
-              <p className={"errorText"}>{errors.userName?.message}</p>
+              <p className={'errorText'}>{errors.userName?.message}</p>
             )}
-
-            {/* {formErrors.userName && <span>{formErrors.userName}</span>} */}
           </CustomInput>
           <CustomInput
-            rules={register("email", {
-              required: "Email field is required!",
+            rules={register('email', {
+              required: 'Email field is required!',
               pattern: {
                 value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
-                message: "The input is not valid E-mail!",
+                message: 'The input is not valid E-mail!',
               },
             })}
-            title={"Email"}
-            placeholder={"ryanfay@edgevana.com"}
+            title={'Email'}
+            placeholder={'ryanfay@edgevana.com'}
             isNameField={false}
           >
             {errors.email && (
-              <p className={"errorText"}>{errors.email?.message}</p>
+              <p className={'errorText'}>{errors.email?.message}</p>
             )}
-
-            {/*{formErrors.email && <span>{formErrors.email}</span>} */}
           </CustomInput>
           <CustomInput
-            rules={register("password", {
-              required: "Password is required!",
+            rules={register('password', {
+              required: 'Password is required!',
               minLength: {
                 value: 8,
-                message: "Password must have at least 8 characters",
+                message: 'Password must have at least 8 characters',
               },
             })}
-            title={"Password"}
-            placeholder={"Password"}
+            title={'Password'}
+            placeholder={'Password'}
             isNameField={false}
             showPassword={true}
           >
             {errors.password && (
-              <p className={"errorText"}>{errors.password?.message}</p>
+              <p className={'errorText'}>{errors.password?.message}</p>
             )}
-
-            {/*{formErrors.password && <span>{formErrors.password}</span>} */}
           </CustomInput>
           <CheckboxContainer ref={trigeredBlock}>
             <input
@@ -185,12 +175,12 @@ const Form = () => {
             </label>
             <TextPrivacy onClick={() => setCheck((item) => !item)}>
               I certify that i am 18 years of age or older, i agree to the to
-              Edgevana`s{" "}
-              <Link href={"/"} legacyBehavior target="_blank">
+              Edgevana`s{' '}
+              <Link href={'/'} legacyBehavior target="_blank">
                 <StyledLink>Terms of Use</StyledLink>
               </Link>
-              , and i have read the{" "}
-              <Link href={"/"} legacyBehavior target="_blank">
+              , and i have read the{' '}
+              <Link href={'/'} legacyBehavior target="_blank">
                 <StyledLink className="privacy"> Privacy Policy</StyledLink>
               </Link>
               .
@@ -202,7 +192,7 @@ const Form = () => {
         </form>
       </FormProvider>
       <BusinesDescription>
-        <Link href={"/"} legacyBehavior>
+        <Link href={'/'} legacyBehavior>
           <StyledLink>Sign up</StyledLink>
         </Link>
         &nbsp;for business account
