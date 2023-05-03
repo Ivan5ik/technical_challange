@@ -1,19 +1,20 @@
 import { FC } from 'react';
-import { FooterText, RootFooter } from './style';
 import classNames from 'classnames';
 
-interface FooterLeftBlock {
+import { FooterText, RootFooter } from './style';
+
+interface Footer {
   isLeft?: boolean;
 }
 
-const FooterLeftBlock: FC<FooterLeftBlock> = ({ isLeft }) => {
+const Footer: FC<Footer> = ({ isLeft }) => {
   const currentYear = new Date().getFullYear();
 
   return (
-    <RootFooter className={classNames({ isLeft: isLeft })}>
+    <RootFooter className={classNames({ isLeft })}>
       <FooterText>© Edegvana {currentYear}</FooterText>
     </RootFooter>
   );
 };
 
-export { FooterLeftBlock };
+export { Footer };
