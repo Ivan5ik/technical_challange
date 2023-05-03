@@ -25,6 +25,7 @@ const Form = () => {
     handleSubmit,
     formState: { errors },
     reset,
+    trigger,
   } = methods;
 
   const [check, setCheck] = useState(false);
@@ -58,7 +59,14 @@ const Form = () => {
     } else {
       setFormErrors(responseData.errors);
     }
-    reset();
+
+    reset(() => ({
+      firstName: "",
+      lastName: "",
+      userName: "",
+      email: "",
+      password: "",
+    }));
   };
 
   return (

@@ -21,6 +21,7 @@ import { useForm } from "react-hook-form";
 interface IInput {
   title: string;
   rules: any;
+
   placeholder: string;
   children: ReactNode;
   isNameField: boolean;
@@ -30,6 +31,7 @@ interface IInput {
 const CustomInput: FC<IInput> = ({
   title,
   rules,
+
   children,
   placeholder,
   isNameField,
